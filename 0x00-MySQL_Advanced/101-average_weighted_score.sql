@@ -6,7 +6,7 @@ DELIMITER $$
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
 BEGIN
     ALTER TABLE users ADD total_weighted_score INT NOT NULL;
-    ALTER TABLE users ADD total_weighted_score INT NOT NULL;
+    ALTER TABLE users ADD total_weight INT NOT NULL;
 
     UPDATE users
         SET total_weighted_score = (
