@@ -15,7 +15,7 @@ BEGIN
         FROM corrections
         WHERE corrections.user_id = user_id;
     SELECT COUNT(*)
-        INTO total_score
+        INTO projects_count
         FROM corrections
         WHERE corrections.user_id = user_id;
 
