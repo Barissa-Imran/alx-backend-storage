@@ -16,3 +16,15 @@ class Cache():
         generate = str(uuid.uuid4())
         self._redis.set(generate, data)
         return generate
+
+    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
+        """the get method"""
+        value = self._redis.get(key)
+        return value if not fn else fn(value)
+
+    def get_int(self, key):
+        return self.get(key, int)
+
+    def get_str(self, key):
+        value = self._redis.get(key)
+        return value.decode('utf-8')
